@@ -56,16 +56,6 @@ class TestStatevectorSimulator(common.QiskitAerTestCase):
         self.is_completed(result)
         self.compare_statevector(result, circuits, targets)
 
-    def test_initialize_3(self):
-        """Test StatevectorSimulator initialize"""
-        circuits = ref_initialize.initialize_circuits_3(final_measure=False)
-        targets = ref_initialize.initialize_statevector_3()
-        qobj = assemble(circuits, shots=1)
-        sim_job = StatevectorSimulator().run(qobj)
-        result = sim_job.result()
-        self.is_completed(result)
-        self.compare_statevector(result, circuits, targets, global_phase=False)
-
    # ---------------------------------------------------------------------
     # Test reset
     # ---------------------------------------------------------------------
